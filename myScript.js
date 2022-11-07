@@ -12,6 +12,7 @@ function Book(title, author, pages, status, rating) {
 function addBookToLibrary(title, author, pages, status, rating) {
     let bookCopy = new Book(title, author, pages, status, rating)
     myLibrary.push(bookCopy);
+    console.log(myLibrary);
 }
 
 function displayBooks(arr) {
@@ -46,5 +47,32 @@ addBookToLibrary("Cody", "Hi Code", 10000, "unread", 2);
 addBookToLibrary("Copper", "Hi Copper", 345, "read", 5);
 addBookToLibrary("Alexis", "Hi Lex", 160, "unread", 7.5);
 addBookToLibrary("Morgan", "Hi Morg", 546, "read", 10);
+
+function toggleForm() {
+    formContainer.classList.toggle("hidden");
+}
+
+let addButton = document.querySelector("#add-button");
+let formContainer = document.querySelector(".form-container");
+addButton.addEventListener("click", toggleForm)
+
+/*FORM*/
+
+function saveInfo(e) {
+    
+    e.preventDefault();
+
+    let titleInput = document.getElementById("title").value;
+    let authorInput = document.getElementById("author").value;
+    let pagesInput = document.getElementById("pages").value;
+    let statusInput = document.getElementsByClassName("radio").value;
+    let ratingInput = document.getElementById("rating").value;
+
+    addBookToLibrary(titleInput, authorInput, pagesInput, statusInput, ratingInput);
+    toggleForm();
+}
+
+let form = document.querySelector("#new-book-form");
+form.addEventListener("submit", saveInfo);
 
 displayBooks(myLibrary);
