@@ -23,6 +23,8 @@ function displayBooks(arr) {
         let cardStatus = document.createElement("p");
         let cardRating = document.createElement("p");
 
+        card.classList.add("card");
+
         cardTitle.textContent = "Title: " + arr[i].title;
         cardAuthor.textContent = "Author: " + arr[i].author;
         cardPages.textContent = "Pages: " + arr[i].pages;
