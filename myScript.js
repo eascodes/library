@@ -1,3 +1,5 @@
+/* MAIN LIBRARY DISPLAY */
+
 let myLibrary = [];
 let cardContainer = document.querySelector(".card-container");
 
@@ -12,7 +14,6 @@ function Book(title, author, pages, status, rating) {
 function addBookToLibrary(title, author, pages, status, rating) {
     let bookCopy = new Book(title, author, pages, status, rating)
     myLibrary.push(bookCopy);
-    console.log(myLibrary);
 }
 
 function displayBooks(arr) {
@@ -23,30 +24,52 @@ function displayBooks(arr) {
         let cardPages = document.createElement("p");
         let cardStatus = document.createElement("p");
         let cardRating = document.createElement("p");
+        let removeButton = document.createElement("button");
 
         card.classList.add("card");
+        card.setAttribute("data-index", i);
 
         cardTitle.textContent = "Title: " + arr[i].title;
         cardAuthor.textContent = "Author: " + arr[i].author;
         cardPages.textContent = "Pages: " + arr[i].pages;
         cardStatus.textContent = "Status: " + arr[i].status;
         cardRating.textContent = "Rating: " + arr[i].rating;
+        removeButton.textContent = "Remove Book";
 
         card.appendChild(cardTitle);
         card.appendChild(cardAuthor);
         card.appendChild(cardPages);
         card.appendChild(cardStatus);
         card.appendChild(cardRating);
+        card.appendChild(removeButton);
 
+        removeButton.addEventListener("click", function(){
+            cardContainer.removeChild(card);
+            let thisCardTitle = this.parentElement.firstElementChild.innerHTML;
+            for(const book of myLibrary) {
+                if(thisCardTitle === "Title: " + book.title) {
+                    let index = myLibrary.findIndex(object => {
+                        return object.title === book.title;
+                    });
+                    console.log("Index is " + index);
+                    myLibrary.splice(index,1);
+                    console.log(myLibrary);
+                }
+             }
+        });
         cardContainer.appendChild(card);
     }
 }
 
-addBookToLibrary("Glem", "Hi Glem", 100, "read", 8);
-addBookToLibrary("Cody", "Hi Code", 10000, "unread", 2);
-addBookToLibrary("Copper", "Hi Copper", 345, "read", 5);
-addBookToLibrary("Alexis", "Hi Lex", 160, "unread", 7.5);
-addBookToLibrary("Morgan", "Hi Morg", 546, "read", 10);
+/* TEST BOOKS */
+
+addBookToLibrary("Hi Glem", "Glem", 100, "read", 8);
+addBookToLibrary("Hi Cody", "Code", 10000, "unread", 2);
+addBookToLibrary("Hi Copper", "Copper", 345, "read", 5);
+addBookToLibrary("Hi Alexis", "Lex", 160, "unread", 7.5);
+addBookToLibrary("Hi Morgan", "Morg", 546, "read", 10);
+
+/* FORM */
 
 function toggleForm() {
     formContainer.classList.toggle("hidden");
@@ -56,20 +79,19 @@ let addButton = document.querySelector("#add-button");
 let formContainer = document.querySelector(".form-container");
 addButton.addEventListener("click", toggleForm)
 
-/*FORM*/
-
 function saveInfo(e) {
     
     e.preventDefault();
 
-    let titleInput = document.getElementById("title").value;
-    let authorInput = document.getElementById("author").value;
-    let pagesInput = document.getElementById("pages").value;
-    let statusInput = document.getElementsByClassName("radio").value;
-    let ratingInput = document.getElementById("rating").value;
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let status = document.getElementsByClassName("radio").value;
+    let rating = document.getElementById("rating").value;
 
-    addBookToLibrary(titleInput, authorInput, pagesInput, statusInput, ratingInput);
+    addBookToLibrary(title, author, pages, status, rating);
     toggleForm();
+    displayBooks([{title, author, pages, status, rating}]);
 }
 
 let form = document.querySelector("#new-book-form");
