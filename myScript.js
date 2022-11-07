@@ -25,6 +25,7 @@ function displayBooks(arr) {
         let cardStatus = document.createElement("p");
         let cardRating = document.createElement("p");
         let removeButton = document.createElement("button");
+        let statusButton = document.createElement("button");
 
         card.classList.add("card");
         card.setAttribute("data-index", i);
@@ -35,6 +36,7 @@ function displayBooks(arr) {
         cardStatus.textContent = "Status: " + arr[i].status;
         cardRating.textContent = "Rating: " + arr[i].rating;
         removeButton.textContent = "Remove Book";
+        statusButton.textContent = "Change Read Status";
 
         card.appendChild(cardTitle);
         card.appendChild(cardAuthor);
@@ -42,6 +44,7 @@ function displayBooks(arr) {
         card.appendChild(cardStatus);
         card.appendChild(cardRating);
         card.appendChild(removeButton);
+        card.appendChild(statusButton);
 
         removeButton.addEventListener("click", function(){
             cardContainer.removeChild(card);
@@ -51,9 +54,26 @@ function displayBooks(arr) {
                     let index = myLibrary.findIndex(object => {
                         return object.title === book.title;
                     });
-                    console.log("Index is " + index);
                     myLibrary.splice(index,1);
-                    console.log(myLibrary);
+                }
+             }
+        });
+
+        statusButton.addEventListener("click", function() {
+            let thisCardTitle = this.parentElement.firstElementChild.innerHTML;
+            for(const book of myLibrary) {
+                if(thisCardTitle === "Title: " + book.title) {
+                    let index = myLibrary.findIndex(object => {
+                        return object.title === book.title;
+                    });
+                    let currentStatus = myLibrary[index]["status"];
+                    if(currentStatus === "read") {
+                        myLibrary[index]["status"] = "unread";
+                        cardStatus.textContent = "Status: " + myLibrary[index]["status"];
+                    } else {
+                        myLibrary[index]["status"] = "read";
+                        cardStatus.textContent = "Status: " + myLibrary[index]["status"];
+                    }
                 }
              }
         });
