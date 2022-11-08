@@ -22,6 +22,8 @@ h1 {
     padding: 0 10px 5px 10px;
 }
 
+/* CARDS */
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -54,26 +56,16 @@ h1 {
     margin-top: 5px;
 }
 
+.card-button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+/* FORM */
+
 .hidden {
     visibility: hidden;
-    /* display: none; */
-}
-
-input[type="range"] {
-    width: 25%;
-}
-
-datalist {
-    display: flex;
-    justify-content: space-between;
-    color: black;
-    width: 25%;
-    font-size: 10px;
-}
-
-.form-container {
-    background-color: white;
-    margin-top: 30px;
 }
 
 #add-button {
@@ -84,4 +76,97 @@ datalist {
     border-radius: 50%;
     font-family: 'Lobster', cursive;
     font-size: 20px;
+}
+
+#add-button:hover {
+    background-color: white;
+    color: orange;
+    cursor: pointer;
+}
+
+.form-container {
+    background-color: white;
+    margin: 30px 0 30px 0;
+    width: 60%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 10px;
+}
+
+datalist {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    width: 100%;
+    font-size: 10px;
+    box-sizing: border-box;
+    padding: 0 5% 0 6%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 30px;
+}
+
+input {
+    box-sizing: border-box; 
+    border: #E5E7EB solid;
+    border-radius: 4px;
+    height: 1.5rem;
+    padding: 0 8px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="range"] {
+    width: 100%;    
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    box-shadow: 3px 3px 3px #c2c2c2;
+} 
+
+.radio-container {
+    display: flex;
+    gap: 15px;
+}
+
+fieldset > div > div {
+    display: flex; 
+} 
+
+ div > label {
+    justify-self: center; 
+    align-self: center;
+    padding-left: 5px;
+}  
+
+fieldset {
+    border: 0;
+}
+
+button[type="submit"] {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0 20px 0;
+    font-size: 1rem;
+    font-weight: 400px;
+}
+
+button[type="submit"]:hover {
+    cursor: pointer;
+    background-color: white;
+    color: orange;
+    border: orange solid 2px;
 }
