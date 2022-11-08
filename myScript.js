@@ -31,13 +31,13 @@ function displayBooks(arr) {
         statusButton.classList.add("card-button");
 
         card.classList.add("card");
-        card.setAttribute("data-index", i);
+        // card.setAttribute("data-index", i);
 
-        cardTitle.textContent = "Title: " + arr[i].title;
+        cardTitle.textContent = arr[i].title;
         cardAuthor.textContent = "Author: " + arr[i].author;
         cardPages.textContent = "Pages: " + arr[i].pages;
         cardStatus.textContent = "Status: " + arr[i].status;
-        cardRating.textContent = "Rating: " + arr[i].rating;
+        cardRating.textContent = "Rating: " + arr[i].rating + "/10";
         removeButton.textContent = "Remove Book";
         statusButton.textContent = "Change Read Status";
 
@@ -65,12 +65,12 @@ function displayBooks(arr) {
         statusButton.addEventListener("click", function() {
             let thisCardTitle = this.parentElement.firstElementChild.innerHTML;
             for(const book of myLibrary) {
-                if(thisCardTitle === "Title: " + book.title) {
+                if(thisCardTitle === book.title) {
                     let index = myLibrary.findIndex(object => {
                         return object.title === book.title;
                     });
                     let currentStatus = myLibrary[index]["status"];
-                    if(currentStatus === "read") {
+                    if(currentStatus === "Read") {
                         myLibrary[index]["status"] = "Unread";
                         cardStatus.textContent = "Status: " + myLibrary[index]["status"];
                     } else {
@@ -86,11 +86,11 @@ function displayBooks(arr) {
 
 /* TEST BOOKS */
 
-addBookToLibrary("Hi Glem", "Glem", 100, "Read", 8);
-addBookToLibrary("Hi Cody", "Code", 10000, "Unread", 2);
-addBookToLibrary("Hi Copper", "Copper", 345, "Read", 5);
-addBookToLibrary("Hi Alexis", "Lex", 160, "Unread", 7.5);
-addBookToLibrary("Hi Morgan", "Morg", 546, "Read", 10);
+addBookToLibrary("Where the Crawdads Sing", "Delia Owens", 368, "Read", 9);
+addBookToLibrary("Don Quixote", "Miguel de Cervantes", 1072, "Unread", 5);
+addBookToLibrary("The Life Changing Magic of Tidying Up", "Marie Kondo", 224, "Read", 8);
+addBookToLibrary("Deep Work", "Cal Newport", 304, "Read", 8);
+addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", 224, "Unread", 5);
 
 /* FORM */
 
