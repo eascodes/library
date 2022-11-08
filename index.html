@@ -21,20 +21,20 @@
         <form action="" id="new-book-form" method="POST">
             <ul>
                 <li>
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" placeholder="The Canterbury Tales">
+                    <label for="title">*Title:</label>
+                    <input type="text" id="title" placeholder="The Canterbury Tales" required>
                 </li>
                 <li>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" placeholder="Geoffrey Chaucer">
+                    <label for="author">*Author:</label>
+                    <input type="text" id="author" placeholder="Geoffrey Chaucer" required>
                 </li>
                 <li>
                     <label for="pages">Page Count:</label>
-                    <input type="number" id="pages" placeholder="912">
+                    <input type="number" id="pages" placeholder="912" min="1" max="100000000">
                 </li>
                 <li>
                     <fieldset>
-                        <legend>Book Status:</legend>
+                        <legend>*Book Status:</legend>
                         <div class="radio-container">
                             <div>
                                 <input type="radio" name="status" id="read" value="Read" checked>
@@ -48,7 +48,7 @@
                     </fieldset>
                 </li>
                 <li>
-                    <label for="rating">Rating (10 = best):</label>
+                    <label for="rating">*Rating (10 = best):</label>
                     <div>
                         <input type="range" min="1" max="10" value="5" id="rating" list="tickmarks">
                         <datalist id="tickmarks">
