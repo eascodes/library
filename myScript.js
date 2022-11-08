@@ -29,9 +29,7 @@ function displayBooks(arr) {
 
         removeButton.classList.add("card-button");
         statusButton.classList.add("card-button");
-
         card.classList.add("card");
-        // card.setAttribute("data-index", i);
 
         cardTitle.textContent = arr[i].title;
         cardAuthor.textContent = "Author: " + arr[i].author;
