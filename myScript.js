@@ -106,8 +106,14 @@ function saveInfo(e) {
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
     let pages = document.getElementById("pages").value;
-    let status = document.getElementsByClassName("radio").value;
+    let status = "";
     let rating = document.getElementById("rating").value;
+    let statusResult = document.getElementsByName("status");
+    for(i = 0; i < statusResult.length; i++) {
+        if(statusResult[i].checked) {
+            status = statusResult[i].value;
+        }
+    }
 
     addBookToLibrary(title, author, pages, status, rating);
     toggleForm();
