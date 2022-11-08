@@ -112,6 +112,10 @@ function saveInfo(e) {
     addBookToLibrary(title, author, pages, status, rating);
     toggleForm();
     displayBooks([{title, author, pages, status, rating}]);
+
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
 }
 
 let form = document.querySelector("#new-book-form");
