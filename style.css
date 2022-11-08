@@ -5,26 +5,58 @@
     text-decoration: none;
 }
 
+body {
+    background-image: url("library.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     text-align: center;
     margin-top: 20px;
+    color: white;
+    background-color: black;
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+    padding: 0 10px 5px 10px;
 }
 
 .card-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     margin-top: 30px;
-    background-color: gray;
+    width: 70%;
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .card {
-    border: red solid;
-    background-color: green;
+    background-color: rgb(67, 130, 67);
+    box-shadow: 5px 5px white;
+    width: 20%;
+    min-width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 3px;
+    border-radius: 4px;
+    margin-top: 5px;
 }
 
 .hidden {
     visibility: hidden;
+    /* display: none; */
 }
 
 input[type="range"] {
@@ -37,4 +69,19 @@ datalist {
     color: black;
     width: 25%;
     font-size: 10px;
+}
+
+.form-container {
+    background-color: white;
+    margin-top: 30px;
+}
+
+#add-button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 35px 5px 35px 5px;
+    border-radius: 50%;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
 }

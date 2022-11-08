@@ -27,6 +27,9 @@ function displayBooks(arr) {
         let removeButton = document.createElement("button");
         let statusButton = document.createElement("button");
 
+        removeButton.classList.add("card-button");
+        statusButton.classList.add("card-button");
+
         card.classList.add("card");
         card.setAttribute("data-index", i);
 
@@ -68,10 +71,10 @@ function displayBooks(arr) {
                     });
                     let currentStatus = myLibrary[index]["status"];
                     if(currentStatus === "read") {
-                        myLibrary[index]["status"] = "unread";
+                        myLibrary[index]["status"] = "Unread";
                         cardStatus.textContent = "Status: " + myLibrary[index]["status"];
                     } else {
-                        myLibrary[index]["status"] = "read";
+                        myLibrary[index]["status"] = "Read";
                         cardStatus.textContent = "Status: " + myLibrary[index]["status"];
                     }
                 }
@@ -83,11 +86,11 @@ function displayBooks(arr) {
 
 /* TEST BOOKS */
 
-addBookToLibrary("Hi Glem", "Glem", 100, "read", 8);
-addBookToLibrary("Hi Cody", "Code", 10000, "unread", 2);
-addBookToLibrary("Hi Copper", "Copper", 345, "read", 5);
-addBookToLibrary("Hi Alexis", "Lex", 160, "unread", 7.5);
-addBookToLibrary("Hi Morgan", "Morg", 546, "read", 10);
+addBookToLibrary("Hi Glem", "Glem", 100, "Read", 8);
+addBookToLibrary("Hi Cody", "Code", 10000, "Unread", 2);
+addBookToLibrary("Hi Copper", "Copper", 345, "Read", 5);
+addBookToLibrary("Hi Alexis", "Lex", 160, "Unread", 7.5);
+addBookToLibrary("Hi Morgan", "Morg", 546, "Read", 10);
 
 /* FORM */
 
