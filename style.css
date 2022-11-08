@@ -26,3 +26,15 @@ h1 {
 .hidden {
     visibility: hidden;
 }
+
+input[type="range"] {
+    width: 25%;
+}
+
+datalist {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    width: 25%;
+    font-size: 10px;
+}

@@ -36,7 +36,19 @@
         
             <label for="rating">Rating:</label>
             <div>
-                <input type="range" min="1" max="10" value="5" id="rating">
+                <input type="range" min="1" max="10" value="5" id="rating" list="tickmarks">
+                <datalist id="tickmarks">
+                    <option value="1" label ="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5" label="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8"></option>
+                    <option value="9"></option>
+                    <option value="10" label="10"></option>
+                </datalist>
             </div>
             <button type="submit">Submit</button>
         </form>
