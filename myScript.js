@@ -3,12 +3,14 @@
 let myLibrary = [];
 let cardContainer = document.querySelector(".card-container");
 
-function Book(title, author, pages, status, rating) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-    this.rating = rating;
+class Book {
+    constructor(title, author, pages, status, rating) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+        this.rating = rating;
+    }
 }
 
 function addBookToLibrary(title, author, pages, status, rating) {
