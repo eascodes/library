@@ -131,3 +131,37 @@ let form = document.querySelector("#new-book-form");
 form.addEventListener("submit", saveInfo);
 
 displayBooks(myLibrary);
+
+/*FORM VALIDATION*/
+const title = document.getElementById("title");
+title.addEventListener("input", (event) => {
+    if (title.validity.tooShort) {
+        title.setCustomValidity("Please enter a book title with at least 3 characters");
+        title.reportValidity();
+    } else {
+        title.setCustomValidity("");
+    }
+})
+
+const author = document.getElementById("author");
+author.addEventListener("input", (event) => {
+    if (author.validity.tooShort) {
+        author.setCustomValidity("Please enter an author name with at least 3 characters");
+        author.reportValidity;
+    } else {
+        author.setCustomValidity("");
+    }
+})
+
+const pages = document.getElementById("pages");
+pages.addEventListener("input", (event) => {
+    if (pages.validity.rangeUnderflow) {
+        pages.setCustomValidity("The page count needs to be at least 3 pages");
+        pages.reportValidity;
+    } else if (pages.validity.rangeOverflow) {
+        pages.setCustomValidity("That's too many pages!");
+        pages.reportValidity;
+    } else {
+        pages.setCustomValidity("");
+    }
+})

@@ -132,6 +132,11 @@ input {
     padding: 0 8px;
 }
 
+input:invalid {
+    border-color: #900;
+    background-color: #fdd;
+}
+
 input[type="text"],
 input[type="number"],
 input[type="range"] {
